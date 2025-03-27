@@ -1,0 +1,14 @@
+{
+    "name": "regimo",
+    "version": "1.0.0",
+    "description": "A property search website",
+    "main": "src/app/main.js",
+    "scripts": {
+        "start": "json-server --watch server/db.json --port 5000"
+    },
+    "devDependencies": {
+        "json-server": "^0.16.3"
+    },
+    "author": "",
+    "license": "ISC"
+}

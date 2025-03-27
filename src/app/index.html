@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regimo - Find Your Dream Property</title>
+    <link rel="stylesheet" href="./styles/global.css">
+</head>
+<body>
+
+    <!-- ✅ HEADER (Sticky Navigation) -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="https://i.pinimg.com/1200x/35/1e/5f/351e5f0390eea6ee5cb477492ce949e3.jpg" alt="Regimo Logo" class="logo">
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#properties">Properties</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="profile-dropdown">
+                <button id="profile-btn">
+                    <img src="https://media.istockphoto.com/id/1223671392/vector/default-profile-picture-avatar-photo-placeholder-vector-illustration.jpg?s=612x612&w=0&k=20&c=s0aTdmT5aU6b8ot7VKm11DeID6NctRCpB755rA1BIP0=" 
+                         alt="Profile Avatar" class="avatar"> ▼
+                </button>
+                <div id="profile-menu" class="dropdown-content">
+                    <a href="#" class="open-modal" data-modal="sign-in">Sign In</a>
+                    <a href="#" class="open-modal" data-modal="settings">Settings</a>
+                </div>                
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ✅ HERO SECTION -->
+        <section id="hero">
+            <div class="hero-container">
+                <h1>Find Your Dream Property with Regimo</h1>
+                <p>Discover the best homes, apartments, and commercial properties.</p>
+                <button id="get-started-btn">Get Started</button>
+                <button id="go-to-properties-btn">Go to Properties</button>
+            </div>
+        </section>
+
+        <!-- ✅ PROPERTY SEARCH FORM -->
+        <section id="search-section">
+            <h2>Find Your Perfect Property</h2>
+            <form id="search-form">
+                <input type="text" id="location" name="location" placeholder="Location">
+                <select id="property-type" name="property-type">
+                    <option value="">Property Type</option>
+                    <option value="house">House</option>
+                    <option value="apartment">Apartment</option>
+                </select>
+                <input type="number" id="min-price" name="min-price" placeholder="Min Price">
+                <input type="number" id="max-price" name="max-price" placeholder="Max Price">
+                <button type="submit">Search</button>
+                <button id="book-viewing-btn">Book a Viewing</button>
+            </form>            
+        </section>
+
+        <!-- ✅ FEATURED PROPERTIES -->
+        <section id="properties">
+            <h2>Featured Properties</h2>
+            <div id="property-list" class="properties-container">
+                <img src="./images/highrise-apartment.jpg" alt="Highrise Apartment">
+                <img src="./images/studio-apartment.jpg" alt="Studio Apartment">
+                <img src="./images/house-exterior-modern.jpg" alt="Modern House">
+                <img src="./images/villa.jpg" alt="Luxury Villa">
+                <img src="./images/apartment-interior.jpg" alt="Apartment Interior">
+            </div>
+            <button id="view-all-properties">Go to Properties</button>
+        </section>
+
+        <!-- ✅ REVIEWS SECTION -->
+        <section id="reviews">
+            <h2>What Our Clients Say</h2>
+            <div class="carousel">
+                <div class="carousel-slide">Review 1: "Great service!"</div>
+                <div class="carousel-slide">Review 2: "Found my dream home!"</div>
+                <div class="carousel-slide">Review 3: "Easy and fast process!"</div>
+                <button id="prev-slide">←</button>
+                <button id="next-slide">→</button>
+            </div>
+        </section>
+
+        <!-- ✅ FINAL CTA -->
+        <section id="final-cta">
+            <h2>Ready to Find Your Dream Property?</h2>
+            <button id="explore-now-btn">Explore Now</button>
+        </section>
+
+    </main>
+
+    <!-- ✅ FOOTER -->
+    <footer id="contact">
+        <div class="footer-container">
+            <p>&copy; 2025 Regimo. All rights reserved.</p>
+    
+            <!-- ✅ Social Media Icons (Aligned Left in a Single Column) -->
+            <div class="social-icons flex flex-col items-start">
+                <a href="#" target="_blank" class="mb-2">
+                    <img src="https://static.vecteezy.com/system/resources/previews/018/910/691/non_2x/instagram-mobile-app-logo-instagram-app-icon-ig-app-free-free-vector.jpg" alt="Instagram" class="w-8 h-8">
+                </a>
+                <a href="#" target="_blank" class="mb-2">
+                    <img src="https://pbs.twimg.com/profile_images/1683364031921356800/lC0xkPJZ_400x400.jpg" alt="X" class="w-8 h-8">
+                </a>
+                <a href="#" target="_blank" class="mb-2">
+                    <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/e0/c8/f5/e0c8f5a0-431c-fa12-472d-eedcbf311305/AppIcon-0-1x_U007emarketing-0-8-0-85-220-0.png/1200x630wa.png" alt="LinkedIn" class="w-8 h-8">
+                </a>
+            </div>
+    
+            <!-- ✅ Contact Info -->
+            <div class="contact-info">
+                <p>Email: support@regimo.com</p>
+                <p>Phone: +123 456 7890</p>
+            </div>
+    
+            <!-- ✅ Policy Links (Triggers Popup Modals) -->
+            <div class="policy-links">
+                <a href="#" class="open-modal" data-modal="privacy-modal">Privacy Policy</a> |
+                <a href="#" class="open-modal" data-modal="about-modal">About</a> |
+                <a href="#" class="open-modal" data-modal="terms-modal">Terms & Conditions</a> |
+                <a href="#" class="open-modal" data-modal="cookie-modal">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ✅ MODALS (Initially Hidden) -->
+    <div id="privacy-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p>Details about our privacy policy...</p>
+        </div>
+    </div>
+    
+    <div id="about-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>About</h2>
+            <p>Information about Regimo...</p>
+        </div>
+    </div>
+    
+    <div id="terms-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Terms & Conditions</h2>
+            <p>Terms and conditions details...</p>
+        </div>
+    </div>
+    
+    <div id="cookie-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Cookie Policy</h2>
+            <p>Details about our cookie policy...</p>
+        </div>
+    </div>    
+
+    <!-- ✅ Generic Modal Overlay (Hidden by Default) -->
+<div id="modal-overlay" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modal-body"><!-- Dynamic content will be injected here --></div>
+    </div>
+</div>
+    
+    <script src="main.js" defer></script>
+</body>
+</html>

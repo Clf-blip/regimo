@@ -1,0 +1,321 @@
+/* 🌍 GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: black;
+}
+
+/* ✅ STICKY HEADER */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    z-index: 1000;
+}
+
+/* ✅ HEADER CONTAINER: Aligns items horizontally */
+.header-container {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+    justify-content: space-between; /* Pushes elements to edges */
+    width: 100%;
+}
+
+/* ✅ LOGO */
+.logo {
+    width: 80px;
+    height: auto;
+}
+
+/* ✅ NAVIGATION */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    position: relative;
+}
+
+/* ✅ UNDERLINE EFFECT ON HOVER */
+nav ul li a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ✅ PROFILE DROPDOWN */
+.profile-dropdown {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center; /* Ensures the avatar and dropdown stay aligned */
+    gap: 10px; /* Space between avatar and dropdown icon */
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 45px; /* Adjusted position, make sure it appears below the button */
+    right: 0;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    z-index: 10; /* Ensure it appears on top of other elements */
+}
+
+.profile-dropdown.active .dropdown-content {
+    display: block;
+}
+
+/* ✅ HERO SECTION */
+#hero {
+    background-image: url('https://images.pexels.com/photos/29069329/pexels-photo-29069329/free-photo-of-stunning-nairobi-skyline-at-dusk.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* ✅ SEARCH SECTION */
+#search-section {
+    background-color: #232f3e;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+#search-form input, #search-form select, #search-form button {
+    margin: 10px;
+    padding: 10px;
+}
+
+/* ✅ PROPERTIES SECTION */
+#properties {
+    padding: 50px;
+}
+
+.properties-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.property-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.property-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.property-image:hover {
+    transform: scale(1.05);
+}
+
+/* ✅ REVIEWS SECTION */
+#reviews {
+    padding: 50px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+/* ✅ FINAL CTA */
+#final-cta {
+    background-color: black;
+    color: white;
+    padding: 50px;
+    text-align: center;
+}
+
+/* ✅ FOOTER (UPDATED) */
+footer {
+    background-color: #232f3e;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    justify-content: space-between; /* Space elements: social icons left, other content centered */
+    flex-wrap: wrap; /* Ensure everything wraps properly if needed */
+    position: relative; /* Allow absolute positioning for social icons */
+}
+
+/* ✅ SOCIAL MEDIA ICONS */
+.social-icons {
+    display: flex;
+    flex-direction: column;  /* Stack icons vertically */
+    align-items: flex-start; /* Align icons to the left */
+    gap: 10px;  /* Add space between the icons */
+    position: absolute; /* Absolute positioning to push icons to the left */
+    left: 20px; /* Distance from the left edge of the footer */
+    top: 50%; /* Center vertically within the footer */
+    transform: translateY(-50%); /* Align icons vertically centered */
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 35px;  /* Resize icons to fit better */
+    height: 35px; /* Resize icons to fit better */
+}
+
+.social-icons img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* ✅ CONTACT INFO */
+.contact-info {
+    font-size: 14px;
+    opacity: 0.8;
+    text-align: center;
+    max-width: 600px;
+}
+
+/* ✅ POLICY LINKS */
+.policy-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.policy-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.policy-links a:hover {
+    opacity: 1;
+}
+
+/* ✅ RESPONSIVE FOOTER */
+@media (max-width: 600px) {
+    footer {
+        padding: 20px;
+    }
+
+    .social-icons {
+        gap: 8px;  /* Reduce gap on smaller screens */
+        left: 10px; /* Adjust left margin on smaller screens */
+    }
+
+    .social-icons a {
+        width: 30px; /* Resize to smaller size for mobile */
+        height: 30px; /* Resize to smaller size for mobile */
+    }
+
+    .policy-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-info {
+        font-size: 12px;
+    }
+}
+
+/* ✅ MODAL OVERLAY */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark background to highlight the modal */
+    z-index: 9999; /* Ensure it appears on top of other content */
+    justify-content: center;
+    align-items: center;
+}
+
+/* ✅ MODAL CONTENT */
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+/* ✅ MODAL OPEN (used to show modals) */
+.modal-overlay.active {
+    display: flex; /* Show modal overlay */
+}

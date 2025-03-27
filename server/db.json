@@ -1,0 +1,51 @@
+{
+    "properties": [
+      {
+        "id": "1",
+        "title": "2-Bedroom Apartment in Nairobi",
+        "location": "Nairobi Central",
+        "price": 1500000,
+        "image": "https://example.com/images/apt1.jpg",
+        "description": "A spacious 2-bedroom apartment located in the heart of Nairobi, close to amenities.",
+        "available": true
+      },
+      {
+        "id": "2",
+        "title": "3-Bedroom House in Mombasa",
+        "location": "Mombasa Town",
+        "price": 2800000,
+        "image": "https://example.com/images/house1.jpg",
+        "description": "Beautiful 3-bedroom house near the beach in Mombasa with a large backyard.",
+        "available": true
+      },
+      {
+        "id": "3",
+        "title": "1-Bedroom Studio in Kisumu",
+        "location": "Kisumu City",
+        "price": 800000,
+        "image": "https://example.com/images/studio1.jpg",
+        "description": "A cozy studio apartment, perfect for singles or couples, located in Kisumu City center.",
+        "available": false
+      },
+      {
+        "id": "4",
+        "title": "4-Bedroom Villa in Eldoret",
+        "location": "Eldoret Suburbs",
+        "price": 3500000,
+        "image": "https://example.com/images/villa1.jpg",
+        "description": "Luxurious 4-bedroom villa with modern amenities and a large garden in Eldoret.",
+        "available": true
+      },
+      {
+        "id": "5",
+        "title": "3-Bedroom Apartment in Nakuru",
+        "location": "Nakuru Town",
+        "price": 2200000,
+        "image": "https://example.com/images/apt2.jpg",
+        "description": "Spacious 3-bedroom apartment located in the vibrant town of Nakuru with amazing views.",
+        "available": true
+      }
+    ]
+  }
+  
+  
