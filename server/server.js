@@ -1,13 +1,23 @@
+const express = require("express");
+const path = require("path");
 const jsonServer = require("json-server");
-const server = jsonServer.create();
-const router = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults();
+
+const app = express();
 const port = process.env.PORT || 1000;
-console.log(`🚀 Server starting on port: ${port}`);
 
-server.use(middlewares);
-server.use(router);
+// Serve the frontend
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-server.listen(port, () => {
-  console.log(`JSON Server is running on port ${port}`);
+// JSON Server setup
+const jsonRouter = jsonServer.router("db.json");
+const middlewares = jsonServer.defaults();
+app.use("/api", middlewares, jsonRouter);
+
+// Catch-all route to serve React app for all frontend routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+});
+
+app.listen(port, () => {
+  console.log(`🚀 Server running on port ${port}`);
 });
