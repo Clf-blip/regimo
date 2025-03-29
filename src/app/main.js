@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const apiUrl = 'http://localhost:5000/properties';
 
-    // ✅ Fetch and display properties
+    //  Fetch and display properties
     fetch(apiUrl)
     .then(response => {
         if (!response.ok) {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Fetched properties:', properties); // Logging for debugging
         propertyList.innerHTML = '';
 
-        // ✅ Map property titles to specific image filenames in public/images/
+        //  Map property titles to specific image filenames in public/images/
         const propertyImages = {
             "2-Bedroom Apartment in Nairobi": "apartment-interior.jpg",
             "3-Bedroom House in Mombasa": "house-exterior-modern.jpg",
@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const propertyElement = document.createElement('div');
             propertyElement.classList.add('property-card');
 
-            // ✅ Assign the correct image filename or fallback to default
+            //  Assign the correct image filename or fallback to default
             const imageFilename = propertyImages[property.title] || "default.jpg";
-            const imagePath = `/images/${encodeURIComponent(imageFilename)}`; // Encode filename for safety
+const imagePath = `/images/${encodeURIComponent(imageFilename)}`; // Encode filename for safety
 
             propertyElement.innerHTML = `
                 <img class="property-image" 
@@ -62,14 +62,14 @@ document.addEventListener('DOMContentLoaded', function () {
         propertyList.innerHTML = '<p style="color: red;">Failed to load properties. Please try again later.</p>';
     });
 
-    // ✅ Profile Dropdown Toggle
+    //  Profile Dropdown Toggle
     if (profileDropdown && profileMenu) {
         profileDropdown.addEventListener('click', function () {
             console.log('Profile dropdown clicked');
             profileMenu.classList.toggle('active');
         });
 
-        // ✅ Close dropdown when clicking outside
+        //  Close dropdown when clicking outside
         document.addEventListener('click', function (event) {
             if (!profileDropdown.contains(event.target)) {
                 console.log('Closing dropdown');
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ✅ Open Modal Function
+    //  Open Modal Function
     function openModal(content) {
         console.log('Opening modal with content:', content);
     
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
         modalOverlay.style.display = 'flex';
     }    
 
-    // ✅ Close Modal Function
+    // Close Modal Function
     if (closeModal) {
         closeModal.addEventListener('click', function () {
             if (modalOverlay) {
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ✅ Close modal when clicking outside content
+    //  Close modal when clicking outside content
     if (modalOverlay) {
         modalOverlay.addEventListener('click', function (event) {
             if (event.target === modalOverlay) {
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ✅ Event Delegation for Opening Modals
+    //  Event Delegation for Opening Modals
     document.addEventListener("DOMContentLoaded", function () {
         const modalOverlay = document.getElementById("modal-overlay");
         const modalBody = document.getElementById("modal-body");
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });    
 
-    // ✅ Carousel Functionality
+    //  Carousel Functionality
     const carousel = document.querySelector('.carousel');
     const slides = document.querySelectorAll('.carousel-slide');
     let currentIndex = 0;
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ✅ Ensure buttons exist before adding event listeners
+    //  Ensure buttons exist before adding event listeners
     const nextButton = document.getElementById('next-slide');
     const prevButton = document.getElementById('prev-slide');
 
