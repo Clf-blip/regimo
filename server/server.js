@@ -5,12 +5,16 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 10000;
 
-// Debugging: Log paths to check if files exist
-console.log("🔍 Serving frontend from:", path.resolve(__dirname, "src", "app"));
-console.log("🔍 Serving index.html from:", path.resolve(__dirname, "src", "app", "index.html"));
+// Correct the path (remove extra "server" directory)
+const frontendPath = path.join(__dirname, "src", "app");
+const indexPath = path.join(frontendPath, "index.html");
+
+// Debugging logs
+console.log("🔍 Serving frontend from:", frontendPath);
+console.log("🔍 Serving index.html from:", indexPath);
 
 // Serve frontend files
-app.use(express.static(path.resolve(__dirname, "src", "app")));
+app.use(express.static(frontendPath));
 
 // Serve JSON Server API
 const jsonServerRouter = jsonServer.router("db.json");
@@ -19,7 +23,7 @@ app.use("/api", middlewares, jsonServerRouter);
 
 // Fallback to index.html for frontend routes
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "src", "app", "index.html"));
+  res.sendFile(indexPath);
 });
 
 // Start server
