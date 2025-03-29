@@ -6,15 +6,37 @@ const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 10000;
 
-// 🔍 Adjust frontend path
-const frontendPath = path.join(__dirname, "src", "app");
+// 🔍 Detect Correct Frontend Path
+const possiblePaths = [
+  path.join(__dirname, "src", "app"), // Default location
+  path.join(__dirname, "..", "src", "app"), // If deployed differently
+  path.join(__dirname, "public"), // Fallback to public/
+];
+
+// Find an existing frontend folder
+const frontendPath = possiblePaths.find((p) => fs.existsSync(p)) || possiblePaths[0];
 const indexPath = path.join(frontendPath, "index.html");
 
 // 🔍 Debugging Logs
 console.log("🔍 Checking if frontend folder exists:", fs.existsSync(frontendPath));
 console.log("🔍 Checking if index.html exists:", fs.existsSync(indexPath));
+console.log("📂 Serving frontend from:", frontendPath);
 
-// Serve frontend files
+// 🔍 Print Directory Structure for Debugging (Render Logs)
+const recursiveReadDir = (dir) => {
+  try {
+    return fs.readdirSync(dir, { withFileTypes: true }).map((file) => ({
+      name: file.name,
+      type: file.isDirectory() ? "📁 Folder" : "📄 File",
+    }));
+  } catch (err) {
+    return [`❌ Error reading directory: ${dir} - ${err.message}`];
+  }
+};
+
+console.log("📂 Project Structure:", recursiveReadDir(__dirname));
+
+// Serve Frontend Files (if available)
 if (fs.existsSync(frontendPath)) {
   app.use(express.static(frontendPath));
 } else {
@@ -23,10 +45,9 @@ if (fs.existsSync(frontendPath)) {
 
 // Serve JSON Server API
 const jsonServerRouter = jsonServer.router("db.json");
-const middlewares = jsonServer.defaults();
-app.use("/api", middlewares, jsonServerRouter);
+app.use("/api", jsonServer.defaults(), jsonServerRouter);
 
-// Fallback for frontend routes
+// Fallback for Frontend Routes
 app.get("*", (req, res) => {
   if (fs.existsSync(indexPath)) {
     res.sendFile(indexPath);
@@ -36,7 +57,7 @@ app.get("*", (req, res) => {
   }
 });
 
-// Start server
+// Start Server
 app.listen(port, () => {
   console.log(`🚀 Server running on port ${port}`);
 });
